@@ -1,0 +1,230 @@
+---
+import 'cybercore-css/dist/cybercore.min.css';
+
+interface Props {
+	title?: string;
+}
+
+const { title = 'Eddie Carrasco' } = Astro.props;
+
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '/resume', label: 'Resume' },
+	{ href: '/experiments', label: 'Experiments' },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<script is:inline>
+			const storedTheme = localStorage.getItem('theme');
+			const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+				? 'dark'
+				: 'light';
+			document.documentElement.dataset.theme = storedTheme || preferredTheme;
+		</script>
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="site-header cyber-card cyber-card--interactive cyber-neon-border">
+			<div class="header-inner">
+				<a class="brand cyber-text-cyan cyber-text-glow" href="/">EDDIE CARRASCO</a>
+				<div class="nav-controls">
+					<nav aria-label="Primary navigation">
+						<ul>
+							{navItems.map((item) => {
+								const isActive = pathname === item.href || pathname === `${item.href}/`;
+								return (
+									<li>
+										<a class={`nav-link cyber-btn cyber-btn--ghost ${isActive ? 'active' : ''}`} href={item.href}
+											>{item.label}</a
+										>
+									</li>
+								);
+							})}
+						</ul>
+					</nav>
+					<button id="theme-toggle" class="cyber-btn cyber-btn--magenta" type="button" aria-label="Toggle color theme"
+						>Light</button
+					>
+				</div>
+			</div>
+		</header>
+		<main class="content cyber-d-grid cyber-gap-md">
+			<div class="cyber-noise">
+				<slot />
+			</div>
+		</main>
+		<script is:inline>
+			const themeToggleButton = document.getElementById('theme-toggle');
+			const setThemeButtonLabel = () => {
+				if (!themeToggleButton) {
+					return;
+				}
+				const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+				themeToggleButton.textContent = theme === 'dark' ? 'Light' : 'Dark';
+				themeToggleButton.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+			};
+
+			setThemeButtonLabel();
+
+			themeToggleButton?.addEventListener('click', () => {
+				const currentTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+				const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+				document.documentElement.dataset.theme = nextTheme;
+				localStorage.setItem('theme', nextTheme);
+				setThemeButtonLabel();
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	:root {
+		font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+		line-height: 1.5;
+		color-scheme: light;
+		--bg: #eff4ff;
+		--text: #1b1d29;
+		--header-bg: rgba(255, 255, 255, 0.88);
+		--border: #8db8ff;
+		--surface: rgba(255, 255, 255, 0.92);
+		--muted: #3b4863;
+		--soft-bg: #d5e6ff;
+		--link: #1142c3;
+		--glow: 0 0 12px rgba(17, 66, 195, 0.22);
+		color: var(--text);
+		background: var(--bg);
+	}
+
+	:root[data-theme='dark'] {
+		color-scheme: dark;
+		--bg: #090b14;
+		--text: #d7ecff;
+		--header-bg: rgba(9, 11, 20, 0.82);
+		--border: #00f0ff;
+		--surface: rgba(15, 18, 30, 0.82);
+		--muted: #8aa5c2;
+		--soft-bg: #17213a;
+		--link: #00f0ff;
+		--glow: 0 0 16px rgba(0, 240, 255, 0.28);
+	}
+
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		min-height: 100%;
+		background-image:
+			radial-gradient(circle at 12% 8%, rgba(0, 240, 255, 0.12), transparent 32%),
+			radial-gradient(circle at 84% 2%, rgba(255, 42, 109, 0.12), transparent 30%),
+			radial-gradient(circle at 50% 96%, rgba(5, 255, 161, 0.1), transparent 36%);
+		background: var(--bg);
+		color: var(--text);
+	}
+
+	.site-header {
+		position: sticky;
+		top: 0;
+		background: var(--header-bg);
+		backdrop-filter: blur(8px);
+		border-bottom: 1px solid var(--border);
+		border-radius: 0;
+		margin: 0;
+		z-index: 10;
+	}
+
+	.header-inner {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.brand {
+		color: var(--text);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+	}
+
+	.nav-controls {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		gap: 0.75rem;
+		margin: 0;
+		padding: 0;
+	}
+
+	nav a {
+		text-decoration: none;
+		color: var(--text);
+		padding: 0.3rem 0.65rem;
+		border-radius: 999px;
+	}
+
+	nav a:hover,
+	nav a.active {
+		background: var(--soft-bg);
+		color: var(--text);
+		box-shadow: var(--glow);
+	}
+
+	#theme-toggle {
+		min-width: 5.5rem;
+	}
+
+	.nav-link {
+		text-transform: uppercase;
+		font-size: 0.78rem;
+	}
+
+	.content {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem 3rem;
+	}
+
+	:global(.cyber-card) {
+		background: var(--surface);
+		border-color: var(--border);
+	}
+
+	:global(a) {
+		color: var(--link);
+	}
+
+	@media (max-width: 640px) {
+		.header-inner {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.nav-controls {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		nav ul {
+			flex-wrap: wrap;
+		}
+	}
+</style>

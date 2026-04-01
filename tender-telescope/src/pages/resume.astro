@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Resume | Eddie Carrasco">
+	<section class="resume">
+		<header class="card cyber-card cyber-card--holo intro">
+			<h1 class="cyber-text-cyan cyber-text-glow">EDDIE CARRASCO</h1>
+			<p class="headline">
+				Graduate student in Computer Science with a background in Mathematics and Physics.
+			</p>
+			<p>
+				I focus on building practical software and AI projects, with interests in research,
+				experimentation, and technical writing.
+			</p>
+			<p>
+				<a href="https://www.linkedin.com/in/eddiecarrascoai/" target="_blank" rel="noreferrer">
+					View LinkedIn Profile
+				</a>
+			</p>
+		</header>
+
+		<section class="card cyber-card cyber-card--interactive">
+			<h2>Experience</h2>
+			<article>
+				<h3>Software and AI Projects</h3>
+				<p class="meta">Independent Work | Ongoing</p>
+				<ul>
+					<li>Developing web applications and AI prototypes across multiple stacks.</li>
+					<li>Building and testing practical workflows for real-world problem solving.</li>
+				</ul>
+			</article>
+		</section>
+
+		<section class="card cyber-card cyber-card--interactive">
+			<h2>Education</h2>
+			<article>
+				<h3>Master's in Computer Science</h3>
+				<p class="meta">In Progress</p>
+			</article>
+			<article>
+				<h3>Background in Mathematics and Physics</h3>
+				<p class="meta">Academic Foundation</p>
+			</article>
+		</section>
+
+		<section class="card cyber-card cyber-card--interactive">
+			<h2>Skills</h2>
+			<ul class="tags">
+				<li class="cyber-badge">Computer Science</li>
+				<li class="cyber-badge">Mathematics</li>
+				<li class="cyber-badge">Physics</li>
+				<li class="cyber-badge">AI Development</li>
+				<li class="cyber-badge">Web Development</li>
+				<li class="cyber-badge">Technical Research</li>
+			</ul>
+		</section>
+	</section>
+</Layout>
+
+<style>
+	.resume {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		padding: 1.25rem;
+	}
+
+	h1,
+	h2,
+	h3 {
+		margin-top: 0;
+	}
+
+	.headline {
+		font-size: 1.05rem;
+		color: var(--text);
+	}
+
+	.meta {
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	a {
+		color: var(--link);
+	}
+
+	.tags {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding: 0;
+		margin: 0;
+	}
+
+	.tags li {
+		background: transparent;
+		color: var(--text);
+		padding: 0.35rem 0.65rem;
+		border-radius: 999px;
+		font-size: 0.9rem;
+	}
+
+	:global(.cyber-badge) {
+		border-color: var(--border);
+	}
+</style>

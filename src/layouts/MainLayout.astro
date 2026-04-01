@@ -1,0 +1,31 @@
+---
+import 'terminal.css'
+const { title } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Eddie in Tech</title>
+  </head>
+  <body class="terminal">
+    <div class="container">
+      <header class="terminal-nav">
+        <div class="terminal-logo">
+          <div class="logo terminal-prompt"><a href="/" class="no-style">eddie@tech:~#</a></div>
+        </div>
+        <nav class="terminal-menu">
+          <ul>
+            <li><a class="menu-item" href="/resume">/resume</a></li>
+            <li><a class="menu-item" href="/experiments">/experiments</a></li>
+            <li><a class="menu-item" href="/blog">/blog</a></li>
+            <li><a class="menu-item" href="/papers">/papers</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <main>
+        <slot /> </main>
+    </div>
+  </body>
+</html>
