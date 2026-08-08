@@ -1,0 +1,42 @@
+[
+  {
+    "id": "3b68915e-e1c0-8129-9e02-eb09ce63e9bf",
+    "title": "The Scaling Law",
+    "slug": "the-scaling-law",
+    "number": 1,
+    "statement": "Model loss falls as a power law in parameters, data, and compute — and all three must grow together or the gains stall.",
+    "domain": "Scaling",
+    "cover": null,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-81c1-bdc2-d6b128e8b6f2",
+    "title": "The Data Wall",
+    "slug": "the-data-wall",
+    "number": 2,
+    "statement": "Every model is bounded by the quantity and quality of text humans have actually written, and that supply is finite.",
+    "domain": "Data",
+    "cover": null,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-81a1-8110-dc20f70fe186",
+    "title": "The Compute Tax",
+    "slug": "the-compute-tax",
+    "number": 3,
+    "statement": "Capability bought through scale is paid for in energy, silicon, and heat — costs that grow faster than the capability itself.",
+    "domain": "Compute",
+    "cover": null,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-8182-a19b-f19529a0cc47",
+    "title": "The Evaluation Gap",
+    "slug": "the-evaluation-gap",
+    "number": 4,
+    "statement": "A benchmark stops measuring capability the moment it becomes a target worth optimizing.",
+    "domain": "Alignment",
+    "cover": null,
+    "blocks": []
+  }
+]

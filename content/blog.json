@@ -1,0 +1,32 @@
+[
+  {
+    "id": "3b68915e-e1c0-81c0-9a28-fe02838c7493",
+    "title": "Evaluating RAG Systems Without Fooling Yourself",
+    "slug": "evaluating-rag-without-fooling-yourself",
+    "published": "2026-02-27",
+    "excerpt": "Retrieval benchmarks reward the wrong things. A practical framework for evaluation that survives contact with real users.",
+    "tags": [
+      "Evaluation",
+      "RAG",
+      "Engineering"
+    ],
+    "cover": null,
+    "readingTime": 1,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-81e4-a055-c153b80515e6",
+    "title": "Why Scaling Laws Are Not a Roadmap",
+    "slug": "why-scaling-laws-are-not-a-roadmap",
+    "published": "2026-01-14",
+    "excerpt": "Scaling laws predict loss curves, not capabilities. The gap between the two is where most product roadmaps quietly fail.",
+    "tags": [
+      "LLMs",
+      "Scaling",
+      "Product"
+    ],
+    "cover": null,
+    "readingTime": 1,
+    "blocks": []
+  }
+]

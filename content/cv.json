@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Experience",
+    "entries": [
+      {
+        "id": "3b68915e-e1c0-8138-b226-c618068187d2",
+        "title": "Senior Machine Learning Engineer",
+        "section": "Experience",
+        "organization": "Company Name",
+        "start": "2023-06-01",
+        "end": null,
+        "location": "Las Vegas, NV",
+        "order": 1,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-81d9-86bf-d3496153aa67",
+        "title": "Product Manager - ML Platform",
+        "section": "Experience",
+        "organization": "Previous Company",
+        "start": "2021-03-01",
+        "end": "2023-05-31",
+        "location": "Remote",
+        "order": 2,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-8190-bac5-df7d6f13e0d6",
+        "title": "Data Scientist",
+        "section": "Experience",
+        "organization": "Earlier Company",
+        "start": "2019-01-01",
+        "end": "2021-02-28",
+        "location": "Las Vegas, NV",
+        "order": 3,
+        "blocks": []
+      }
+    ]
+  },
+  {
+    "name": "Education",
+    "entries": [
+      {
+        "id": "3b68915e-e1c0-8131-928d-e6c32cff4c9c",
+        "title": "MS Computer Science",
+        "section": "Education",
+        "organization": "University Name",
+        "start": "2017-09-01",
+        "end": "2018-12-31",
+        "location": "City, State",
+        "order": 10,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-81b3-8162-ca4f22baa1e4",
+        "title": "BS Mathematics",
+        "section": "Education",
+        "organization": "University Name",
+        "start": "2013-09-01",
+        "end": "2017-05-31",
+        "location": "City, State",
+        "order": 11,
+        "blocks": []
+      }
+    ]
+  },
+  {
+    "name": "Skills",
+    "entries": [
+      {
+        "id": "3b68915e-e1c0-8172-885f-fa3619554ed4",
+        "title": "Machine Learning",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 20,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-8125-9734-dbe756d4e6f4",
+        "title": "Languages and Frameworks",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 21,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-81ec-85f3-e95cf2617222",
+        "title": "Product and Leadership",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 22,
+        "blocks": []
+      }
+    ]
+  },
+  {
+    "name": "Certifications",
+    "entries": [
+      {
+        "id": "3b68915e-e1c0-8175-833f-e59fbfa17cf9",
+        "title": "AWS Certified Machine Learning - Specialty",
+        "section": "Certifications",
+        "organization": "Amazon Web Services",
+        "start": "2024-04-01",
+        "end": null,
+        "location": "",
+        "order": 30,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-81ac-bd8b-e053d9d94f3c",
+        "title": "Deep Learning Specialization",
+        "section": "Certifications",
+        "organization": "DeepLearning.AI",
+        "start": "2020-07-01",
+        "end": null,
+        "location": "",
+        "order": 31,
+        "blocks": []
+      }
+    ]
+  }
+]

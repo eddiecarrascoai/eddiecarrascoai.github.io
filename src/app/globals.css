@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * Every color and type decision on the site resolves here. Changing the
+ * visual direction means editing this block — components reference
+ * semantic names (ink, rule, surface) and never raw hex values.
+ *
+ * Direction: scientific-editorial. Cool paper rather than warm cream,
+ * because the content is plots and equations, not essays about coffee.
+ * Two accents drawn from plot colors, used sparingly on structural
+ * elements and never for decoration.
+ */
+
+@theme {
+  /* Surfaces — a blue-grey cast, not cream */
+  --color-surface: #fbfbfc;
+  --color-surface-sunk: #f2f3f5;
+  --color-surface-raised: #ffffff;
+
+  /* Ink — near-black with a slight blue tilt, matching the paper */
+  --color-ink: #16181d;
+  --color-ink-soft: #3d434f;
+  --color-ink-muted: #767d8c;
+
+  /* Structure */
+  --color-rule: #e2e5ea;
+
+  /* Accents, from a plot palette. Indigo carries interaction; rust is
+     reserved for the Laws section, so it reads as meaningful. */
+  --color-accent-indigo: #3b4ea8;
+  --color-accent-rust: #a8503b;
+
+  /* Type. Display and body deliberately differ in structure, not just
+     weight — the contrast is what makes a law statement feel set apart
+     from the argument beneath it. */
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Measure. 68ch is deliberately wider than typical for technical
+     prose, where lines carry inline code and symbols. */
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-surface: #101216;
+    --color-surface-sunk: #181b21;
+    --color-surface-raised: #1c2027;
+    --color-ink: #e8eaee;
+    --color-ink-soft: #b3b9c4;
+    --color-ink-muted: #7d8494;
+    --color-rule: #2a2f38;
+    --color-accent-indigo: #8f9fe8;
+    --color-accent-rust: #d4886f;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible keyboard focus everywhere, without the default halo. */
+:focus-visible {
+  outline: 2px solid var(--color-accent-indigo);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Shiki emits variables for both themes; this switches them. */
+@media (prefers-color-scheme: dark) {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: transparent !important;
+  }
+}
+
+/* Print styles — this is what makes /about print as a clean CV. */
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+  }
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  article {
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "id": "3b68915e-e1c0-81ab-a9e3-e136b7560833",
+    "title": "Transformer Attention Explorer",
+    "slug": "transformer-attention-explorer",
+    "excerpt": "Interactive D3 visualization of attention heads across layers, built to make head specialization legible at a glance.",
+    "tech": [
+      "D3",
+      "JavaScript",
+      "PyTorch"
+    ],
+    "category": "Data Viz",
+    "repoUrl": "https://github.com/yourusername/attention-explorer",
+    "demoUrl": "https://yourusername.github.io/attention-explorer",
+    "featured": true,
+    "order": 1,
+    "date": "2026-02-10",
+    "cover": null,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-816f-a196-c795ee6c85cb",
+    "title": "Sentiment Classifier API",
+    "slug": "sentiment-classifier-api",
+    "excerpt": "Fine-tuned DistilBERT served through Flask with batched inference, deployed free on Hugging Face Spaces.",
+    "tech": [
+      "Python",
+      "Flask",
+      "Hugging Face",
+      "PyTorch"
+    ],
+    "category": "ML",
+    "repoUrl": "https://github.com/yourusername/sentiment-api",
+    "demoUrl": "https://huggingface.co/spaces/yourusername/sentiment-api",
+    "featured": true,
+    "order": 2,
+    "date": "2025-11-03",
+    "cover": null,
+    "blocks": []
+  },
+  {
+    "id": "3b68915e-e1c0-811c-91ac-f58b33a5c656",
+    "title": "Churn Prediction Pipeline",
+    "slug": "churn-prediction-pipeline",
+    "excerpt": "End-to-end pipeline with feature store, model registry, and drift monitoring on a 1.2M-row telecom dataset.",
+    "tech": [
+      "Python",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "category": "ML",
+    "repoUrl": "https://github.com/yourusername/churn-pipeline",
+    "demoUrl": null,
+    "featured": true,
+    "order": 3,
+    "date": "2025-08-22",
+    "cover": null,
+    "blocks": []
+  }
+]
