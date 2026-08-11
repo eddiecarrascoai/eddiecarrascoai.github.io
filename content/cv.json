@@ -6,20 +6,20 @@
         "id": "3b68915e-e1c0-8138-b226-c618068187d2",
         "title": "Senior Machine Learning Engineer",
         "section": "Experience",
-        "organization": "Company Name",
-        "start": "2023-06-01",
+        "organization": "Microsoft",
+        "start": "2022-01-18",
         "end": null,
-        "location": "Las Vegas, NV",
+        "location": "Remote",
         "order": 1,
         "blocks": []
       },
       {
         "id": "3b68915e-e1c0-81d9-86bf-d3496153aa67",
-        "title": "Product Manager - ML Platform",
+        "title": "Senior Data Scientist",
         "section": "Experience",
-        "organization": "Previous Company",
-        "start": "2021-03-01",
-        "end": "2023-05-31",
+        "organization": "Proficient, Inc",
+        "start": "2020-10-20",
+        "end": "2022-01-10",
         "location": "Remote",
         "order": 2,
         "blocks": []
@@ -28,10 +28,10 @@
         "id": "3b68915e-e1c0-8190-bac5-df7d6f13e0d6",
         "title": "Data Scientist",
         "section": "Experience",
-        "organization": "Earlier Company",
-        "start": "2019-01-01",
+        "organization": "Various Companies",
+        "start": "2015-05-12",
         "end": "2021-02-28",
-        "location": "Las Vegas, NV",
+        "location": "Phoenix, AZ",
         "order": 3,
         "blocks": []
       }
@@ -44,21 +44,21 @@
         "id": "3b68915e-e1c0-8131-928d-e6c32cff4c9c",
         "title": "MS Computer Science",
         "section": "Education",
-        "organization": "University Name",
-        "start": "2017-09-01",
-        "end": "2018-12-31",
-        "location": "City, State",
+        "organization": "Johns Hopkins University",
+        "start": "2025-05-15",
+        "end": "2028-05-15",
+        "location": "Baltimore, MD",
         "order": 10,
         "blocks": []
       },
       {
         "id": "3b68915e-e1c0-81b3-8162-ca4f22baa1e4",
-        "title": "BS Mathematics",
+        "title": "BS Mathematics & Physics",
         "section": "Education",
-        "organization": "University Name",
-        "start": "2013-09-01",
-        "end": "2017-05-31",
-        "location": "City, State",
+        "organization": "Arizona State Univeristy",
+        "start": "2010-08-18",
+        "end": "2015-05-31",
+        "location": "Tempe, AZ",
         "order": 11,
         "blocks": []
       }
@@ -80,7 +80,7 @@
       },
       {
         "id": "3b68915e-e1c0-8125-9734-dbe756d4e6f4",
-        "title": "Languages and Frameworks",
+        "title": "Python",
         "section": "Skills",
         "organization": "",
         "start": null,
@@ -99,6 +99,39 @@
         "location": "",
         "order": 22,
         "blocks": []
+      },
+      {
+        "id": "3b98915e-e1c0-808c-97c7-cc22845912ff",
+        "title": "Deep Learning",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 23,
+        "blocks": []
+      },
+      {
+        "id": "3b98915e-e1c0-80e9-a6a4-e097a36e8806",
+        "title": "UX Design",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 24,
+        "blocks": []
+      },
+      {
+        "id": "3b98915e-e1c0-805f-802e-d6f3e683a3f5",
+        "title": "Product Protoypting",
+        "section": "Skills",
+        "organization": "",
+        "start": null,
+        "end": null,
+        "location": "",
+        "order": 25,
+        "blocks": []
       }
     ]
   },
@@ -106,25 +139,36 @@
     "name": "Certifications",
     "entries": [
       {
-        "id": "3b68915e-e1c0-8175-833f-e59fbfa17cf9",
-        "title": "AWS Certified Machine Learning - Specialty",
+        "id": "3b98915e-e1c0-8012-8bbb-f3d00ca1b5b0",
+        "title": "Deep Learning Specialist",
         "section": "Certifications",
-        "organization": "Amazon Web Services",
-        "start": "2024-04-01",
+        "organization": "Udacity",
+        "start": "2020-08-10",
         "end": null,
         "location": "",
-        "order": 30,
+        "order": 50,
         "blocks": []
       },
       {
         "id": "3b68915e-e1c0-81ac-bd8b-e053d9d94f3c",
-        "title": "Deep Learning Specialization",
+        "title": "Product Manager",
         "section": "Certifications",
-        "organization": "DeepLearning.AI",
-        "start": "2020-07-01",
+        "organization": "Product School",
+        "start": "2024-08-22",
         "end": null,
         "location": "",
-        "order": 31,
+        "order": 51,
+        "blocks": []
+      },
+      {
+        "id": "3b68915e-e1c0-8175-833f-e59fbfa17cf9",
+        "title": "Azure Data Scientist - Associate",
+        "section": "Certifications",
+        "organization": "Microsoft Azure",
+        "start": "2024-04-01",
+        "end": null,
+        "location": "",
+        "order": 52,
         "blocks": []
       }
     ]
