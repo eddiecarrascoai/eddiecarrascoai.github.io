@@ -29,6 +29,10 @@ jobs:
       - run: npm run build
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_BLOG: ${{ secrets.NOTION_DB_BLOG }}
+          NOTION_DB_PORTFOLIO: ${{ secrets.NOTION_DB_PORTFOLIO }}
+          NOTION_DB_LAWS: ${{ secrets.NOTION_DB_LAWS }}
+          NOTION_DB_CV: ${{ secrets.NOTION_DB_CV }}
       - run: touch ./out/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
