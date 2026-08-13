@@ -6,6 +6,25 @@ import "katex/dist/katex.min.css";
 import "./globals.css";
 
 /**
+ * Runs before first paint. Dark is the default now, so this only ever
+ * ADDS the `light` class — the inverse of the usual setup.
+ *
+ * Note this ignores the OS preference deliberately: you asked for dark
+ * by default, so a light-mode visitor still gets dark until they toggle.
+ * To respect the OS instead, use:
+ *
+ *   var l = s ? s === 'light'
+ *             : matchMedia('(prefers-color-scheme: light)').matches;
+ */
+const THEME_SCRIPT = `
+try {
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.classList.add('light');
+  }
+} catch (e) {}
+`;
+
+/**
  * next/font downloads and self-hosts these at build time — no request to
  * Google from your visitors, and no layout shift, since the font files
  * ship from your own origin with the CSS that references them.

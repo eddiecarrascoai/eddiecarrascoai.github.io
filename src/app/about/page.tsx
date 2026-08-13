@@ -22,9 +22,11 @@ export default function About() {
             Eddie Carrasco
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            ML engineer and product manager. I work where the model meets
-            the roadmap — training and shipping systems, and deciding
-            which problems are worth a model at all.
+            Product manager and software engineer with a decade of hands-on
+            machine learning experience. I bridge the gap between roadmap
+            and implementation — scoping what to build, then building it,
+            with the ML depth to know which problems are actually worth a
+            model.
           </p>
         </div>
 

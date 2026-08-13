@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { getFeaturedProjects, getPosts, getLaws, formatDate } from "@/lib/content";
@@ -21,13 +22,22 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-5xl px-6">
       <section className="border-b border-rule py-24 sm:py-32">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-rust">
-          ML Engineer · Product Manager
-        </p>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/profile.jpeg"
+            alt="Eddie Carrasco"
+            width={56}
+            height={56}
+            priority
+            className="h-14 w-14 rounded-full object-cover"
+          />
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent-rust">
+            ML Engineer · Product Manager · Entrepreneur
+          </p>
+        </div>
 
         <h1 className="mt-8 max-w-3xl font-display text-4xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-6xl">
-          I build machine learning systems, and decide which ones are
-          worth building.
+          I build and scale AI systems from a product perspective, not just a model.
         </h1>
 
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">

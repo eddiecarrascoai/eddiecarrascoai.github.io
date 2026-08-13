@@ -1,124 +1,403 @@
 @import "tailwindcss";
 
 /*
- * Design tokens.
+ * DARK-FIRST.
  *
- * Every color and type decision on the site resolves here. Changing the
- * visual direction means editing this block — components reference
- * semantic names (ink, rule, surface) and never raw hex values.
- *
- * Direction: scientific-editorial. Cool paper rather than warm cream,
- * because the content is plots and equations, not essays about coffee.
- * Two accents drawn from plot colors, used sparingly on structural
- * elements and never for decoration.
+ * The dark palette is the base — :root holds it, and .light overrides.
+ * This is the opposite of most setups and it matters: whichever theme
+ * you write first is the one that gets designed, and the other gets
+ * derived. Dark is the default here, so dark is the base.
  */
 
+@custom-variant light (&:where(.light, .light *));
+
 @theme {
-  /* Surfaces — a blue-grey cast, not cream */
-  --color-surface: #fbfbfc;
-  --color-surface-sunk: #f2f3f5;
-  --color-surface-raised: #ffffff;
+  /* ---------------------------------------------------------------- */
+  /* Elevation                                                         */
+  /* ---------------------------------------------------------------- */
 
-  /* Ink — near-black with a slight blue tilt, matching the paper */
-  --color-ink: #16181d;
-  --color-ink-soft: #3d434f;
-  --color-ink-muted: #767d8c;
+  /*
+   * In dark mode, depth is LIGHTNESS, not shadow. A shadow on a
+   * near-black surface is invisible — there's nowhere darker to go. So
+   * elements that sit forward get lighter, as if lit from above.
+   *
+   * Four steps, each about 4% lighter than the last. Any bigger and the
+   * layers read as separate colors instead of the same material at
+   * different heights.
+   */
+  --color-surface-sunk: #090b0e; /* recessed: code blocks, wells */
+  --color-surface: #0e1116; /* page background */
+  --color-surface-raised: #161a21; /* cards, panels */
+  --color-surface-overlay: #1e232c; /* hover, popovers, sticky nav */
 
-  /* Structure */
-  --color-rule: #e2e5ea;
+  /* ---------------------------------------------------------------- */
+  /* Ink                                                               */
+  /* ---------------------------------------------------------------- */
 
-  /* Accents, from a plot palette. Indigo carries interaction; rust is
-     reserved for the Laws section, so it reads as meaningful. */
-  --color-accent-indigo: #3b4ea8;
-  --color-accent-rust: #a8503b;
+  /*
+   * Never #fff. Pure white on near-black causes halation — the optical
+   * bleed that makes dark-mode reading tiring after a few paragraphs.
+   * #e6e9ee sits just below the threshold where it starts.
+   */
+  --color-ink: #e6e9ee;
+  --color-ink-soft: #a9b1be;
+  --color-ink-muted: #6e7787;
 
-  /* Type. Display and body deliberately differ in structure, not just
-     weight — the contrast is what makes a law statement feel set apart
-     from the argument beneath it. */
+  /* ---------------------------------------------------------------- */
+  /* Structure                                                         */
+  /* ---------------------------------------------------------------- */
+
+  /* Borders do the work shadows can't. Two weights: hairline separates
+     items within a group, rule separates groups. */
+  --color-rule: #272d37;
+  --color-hairline: #1a1f27;
+
+  /*
+   * The top-edge highlight. One pixel of near-white at 7% along the top
+   * of a raised element reads as a lit edge and is most of what sells
+   * elevation. Applied via .raised below.
+   */
+  --highlight-edge: rgba(255, 255, 255, 0.07);
+
+  /* ---------------------------------------------------------------- */
+  /* Accents                                                           */
+  /* ---------------------------------------------------------------- */
+
+  /*
+   * Lightened and slightly desaturated from their light-mode values.
+   * The saturated originals (#3b4ea8, #a8503b) fail WCAG AA against
+   * these surfaces — a common dark-mode bug, since they look fine to
+   * anyone with good vision on a good display.
+   */
+  --color-accent-indigo: #8b9df2;
+  --color-accent-rust: #d98a70;
+
+  /* ---------------------------------------------------------------- */
+  /* Shadows                                                           */
+  /* ---------------------------------------------------------------- */
+
+  /* Still useful, but must be near-opaque black to register at all. */
+  --shadow-raised: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-overlay: 0 4px 8px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.4);
+
+  /* ---------------------------------------------------------------- */
+  /* Type                                                              */
+  /* ---------------------------------------------------------------- */
+
   --font-display: "Newsreader", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Measure. 68ch is deliberately wider than typical for technical
-     prose, where lines carry inline code and symbols. */
+  --text-step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+  --text-step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --text-step-1: clamp(1.2rem, 1.11rem + 0.42vw, 1.45rem);
+  --text-step-2: clamp(1.44rem, 1.29rem + 0.76vw, 1.94rem);
+  --text-step-3: clamp(1.73rem, 1.48rem + 1.24vw, 2.58rem);
+  --text-step-4: clamp(2.07rem, 1.68rem + 1.96vw, 3.44rem);
+  --text-step-5: clamp(2.49rem, 1.88rem + 3.05vw, 4.58rem);
+
   --measure: 68ch;
+
+  /* ---------------------------------------------------------------- */
+  /* Motion                                                            */
+  /* ---------------------------------------------------------------- */
+
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-firm: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  @theme {
-    --color-surface: #101216;
-    --color-surface-sunk: #181b21;
-    --color-surface-raised: #1c2027;
-    --color-ink: #e8eaee;
-    --color-ink-soft: #b3b9c4;
-    --color-ink-muted: #7d8494;
-    --color-rule: #2a2f38;
-    --color-accent-indigo: #8f9fe8;
-    --color-accent-rust: #d4886f;
-  }
+/* ------------------------------------------------------------------ */
+/* Light theme — override only                                         */
+/* ------------------------------------------------------------------ */
+
+.light {
+  /* Elevation inverts: in light mode, forward elements get LIGHTER than
+     a mid-grey page, and shadows carry the depth instead. */
+  --color-surface-sunk: #f0f1f4;
+  --color-surface: #fbfbfc;
+  --color-surface-raised: #ffffff;
+  --color-surface-overlay: #ffffff;
+
+  --color-ink: #16181d;
+  --color-ink-soft: #3d434f;
+  --color-ink-muted: #767d8c;
+
+  --color-rule: #dcdfe5;
+  --color-hairline: #ebedf0;
+
+  /* No lit edge in light mode — there's no dark surface for it to read
+     against. Shadows do the work. */
+  --highlight-edge: transparent;
+
+  --color-accent-indigo: #3b4ea8;
+  --color-accent-rust: #a8503b;
+
+  --shadow-raised: 0 1px 2px rgba(16, 18, 22, 0.06), 0 4px 12px rgba(16, 18, 22, 0.04);
+  --shadow-overlay: 0 4px 8px rgba(16, 18, 22, 0.08), 0 16px 40px rgba(16, 18, 22, 0.08);
 }
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  /* Makes form controls, scrollbars, and the URL bar match. Without it
+     you get a light scrollbar against a dark page. */
+  color-scheme: dark;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+.light {
+  color-scheme: light;
 }
 
 body {
   background: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-size: var(--text-step-0);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.3s var(--ease-out-soft);
 }
 
-/* Visible keyboard focus everywhere, without the default halo. */
+/*
+ * Ambient glow behind the top of the page.
+ *
+ * A single very large, very faint radial gradient. On a flat dark
+ * background this is the difference between "black rectangle" and
+ * "lit space" — it gives the eye a light source to reconcile the
+ * elevation model against.
+ */
+body::after {
+  content: "";
+  position: fixed;
+  top: -30vh;
+  left: 50%;
+  width: 120vw;
+  height: 80vh;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in oklab, var(--color-accent-indigo) 9%, transparent) 0%,
+    transparent 65%
+  );
+}
+
+.light body::after {
+  opacity: 0.5; /* Barely there on light — it would muddy the paper. */
+}
+
+/* Grain, over the glow. Kills the plastic flatness of a pure gradient. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.light body::before {
+  opacity: 0.022;
+}
+
+body > * {
+  position: relative;
+  z-index: 2;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent-indigo);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Shiki emits variables for both themes; this switches them. */
-@media (prefers-color-scheme: dark) {
-  .shiki,
-  .shiki span {
-    color: var(--shiki-dark) !important;
-    background-color: transparent !important;
+::selection {
+  background: color-mix(in oklab, var(--color-accent-indigo) 25%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Elevation utilities                                                 */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Apply .raised to any card or panel. The inset box-shadow is the lit
+ * top edge — it must come first in the shadow list so it renders above
+ * the drop shadow.
+ */
+.raised {
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-hairline);
+  border-radius: 0.75rem;
+  box-shadow: inset 0 1px 0 var(--highlight-edge), var(--shadow-raised);
+}
+
+.raised-hover {
+  transition:
+    background-color 0.25s var(--ease-out-soft),
+    border-color 0.25s var(--ease-out-soft),
+    transform 0.25s var(--ease-out-soft);
+}
+
+.raised-hover:hover {
+  background: var(--color-surface-overlay);
+  border-color: var(--color-rule);
+  /* One pixel. Enough to read as motion, not enough to look bouncy. */
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion primitives                                                   */
+/* ------------------------------------------------------------------ */
+
+.link-grow {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out-firm);
+}
+
+.link-grow:hover::after,
+.link-grow:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Without JS nothing would ever reveal. A portfolio that renders blank
+   to a scraper or text browser is worse than one with no animation. */
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Print styles — this is what makes /about print as a clean CV. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .raised-hover:hover {
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Code                                                                */
+/* ------------------------------------------------------------------ */
+
+/* Dark is the base, so Shiki's dark variables are the default and light
+   is the override — matching the theme structure above. */
+.shiki,
+.shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: transparent !important;
+}
+
+.light .shiki,
+.light .shiki span {
+  color: var(--shiki-light) !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Print                                                               */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Always light, regardless of theme. Printing a dark page wastes an
+ * entire toner cartridge and renders as grey mud.
+ */
 @media print {
   nav,
   footer,
   .no-print {
     display: none !important;
   }
+
   body {
-    background: #fff;
-    color: #000;
+    background: #fff !important;
+    color: #000 !important;
     font-size: 10.5pt;
+    line-height: 1.4;
   }
-  a::after {
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  .raised {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
     color: #555;
   }
-  h2,
-  h3 {
+
+  h2, h3 {
     break-after: avoid;
   }
+
   article {
     break-inside: avoid;
   }

@@ -14,9 +14,10 @@ export const metadata: Metadata = {
  * it under your control — see the note in SETUP.md.
  */
 const LINKS = [
-  { label: "Email", value: "you@example.com", href: "mailto:you@example.com" },
-  { label: "GitHub", value: "github.com/eddiecarrasco", href: "https://github.com/eddiecarrasco" },
-  { label: "LinkedIn", value: "linkedin.com/in/eddiecarrasco", href: "https://linkedin.com/in/eddiecarrasco" },
+  { label: "Email", value: "eduardo.lalo.carrasco.jr@gmail.com", href: "mailto:you@example.com" },
+  { label: "GitHub", value: "github.com/eddiecarrascoai", href: "https://github.com/eddiecarrasco" },
+  { label: "LinkedIn", value: "linkedin.com/in/eddiecarrascoai", href: "https://linkedin.com/in/eddiecarrasco" },
+  { label: "YouTube", value: "youtube.com/@buildingwitheddie", href: "https://youtube.com/@buildwitheddie" },
 ];
 
 export default function Contact() {
